@@ -1,20 +1,9 @@
 class Solution {
     public boolean isPowerOfTwo(int n) {
-        if(n<=0){
-            return false;
-        }
-        for (int i = 0; i < 31; i++) {
-            int a = (int)Math.pow(2,i);;
-            if(n>a){
-                continue;
-            }
-            if(n==a){
-                return true;
-            }
-            if(n<a){
-                break;
-            }
-            }
-         return false;}
-       
+        // Power of two must be a positive number
+        if (n <= 0) return false;
+
+        // Use bitwise trick: only one bit should be set
+        return (n & (n - 1)) == 0;
     }
+}
